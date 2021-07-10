@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <p class="text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non veniam ipsam sed dolore optio, libero nisi veritatis, accusantium laborum perspiciatis molestias! Ex, eius illum eum molestias distinctio hic porro mollitia?
+        </p>
+    </section>
+
+    <script>
+        // 글자 분리하기
+
+        const text = document.querySelector('.text');
+        text.innerHTML = text.textContent.replace(/\S/g,
+        "<span>$&</span>");
+        // 한글자씩 쪼개져서 span에 담김
+
+        // hover된 span에다 엑티브 클래스 더하기
+        const letter = document.querySelectorAll('span');
+
+        for( let i = 0; i < letter.length; i++) {
+            letter[i].addEventListener('mouseover', () => {
+                letter[i].classList.add('active');
+
+                if(letter[i].classList.contains('active')) {
+
+                    setTimeout(() => {
+                        letter[i].classList.remove('active');
+
+                    }, 8000);
+                }
+
+            });
+        };
+
+    </script>
+
+</body>
+</html>
